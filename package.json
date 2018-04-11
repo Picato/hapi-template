@@ -1,0 +1,30 @@
+{
+  "name": "eu4-server-campaign",
+  "version": "1.0.0",
+  "description": "campaign manager service",
+  "main": "index.js",
+  "nodemonConfig": {
+    "ignore": ["test/*", "docs/*"],
+    "delay": "2500"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon .",
+    "start": "NODE_ENV=production pm2 start ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viosoft-corp/eu4-server-campaign.git"
+  },
+  "keywords": [
+    "eu4"
+  ],
+  "bugs": {
+    "url": "https://github.com/viosoft-corp/eu4-server-campaign/issues"
+  },
+  "homepage": "https://github.com/viosoft-corp/eu4-server-campaign#readme",
+  "dependencies": {
+    "blipp": "^3.0.0",
+    "hapi": "^17.3.1"
+  }
+}
