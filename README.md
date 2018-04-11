@@ -1,6 +1,6 @@
 ## Hapi Template
 
-Project struct & some plugins for faster development
+Project structure & some plugins for faster development
 
 ## How to start
 Install 
