@@ -23,6 +23,9 @@ const start = async () => {
     await server.register([require('blipp')])
   } 
 
+  // register useful plugin 
+  await server.register([require('hapi-alive')])  
+  
   try {
     await server.start()
   }

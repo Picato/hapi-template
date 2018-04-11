@@ -1,7 +1,9 @@
 'use strict'
 
+const Boom = require('boom')
+
 module.exports = {
   test: (request, h) => {
-    return 'this is testing'
+    throw Boom.internal('Internal Mysql Error')
   }
 }

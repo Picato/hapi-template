@@ -1,16 +1,15 @@
 'use strict'
 
-const { pong, Test } = require('./controllers')
+const { Test } = require('./controllers')
 
 module.exports = [
   {
     method: 'GET',
-    path: '/ping',
-    handler: pong
-  },
-  {
-    method: 'GET',
     path: '/test',
+    config: {
+      tags: ['api'],
+      description: 'For testing',
+    },
     handler: Test.test
   }
 ]
