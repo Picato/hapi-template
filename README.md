@@ -1,8 +1,8 @@
-## Hapi Template
+### Hapi Template
 
 Project structure & some plugins for faster development
 
-## How to start
+### How to start
 Install 
 
 ```
@@ -17,6 +17,10 @@ npm run dev
 
 Run in production environment (pm2)
 
-```
+```sh
 npm run start
 ```
+### Document
+Run on !production environment, can check api document & test gui at:    
+
+http://localhost:3000/document

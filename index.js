@@ -4,10 +4,13 @@ const Hapi = require('hapi')
 
 const routes = require('./router')
 
+//import config file
+const { PORT } = require('./config')
+
 // Create a server with a host and port
 const server = Hapi.server({
   host: 'localhost',
-  port: 8000
+  port: PORT
 });
 
 // Add the route
@@ -20,7 +23,19 @@ const start = async () => {
 
   // register plugin DEV mode
   if (process.env.NODE_ENV !== 'production') {
-    await server.register([require('blipp')])
+    await server.register([
+      require('blipp'),
+      require('inert'),
+      require('vision'),
+      {
+        plugin: require('hapi-swagger'), 
+        options: {
+          info: {
+            title: 'API Server Documentation',
+            version: '1.0',
+        },
+      }}
+    ])
   } 
 
   // register useful plugin 

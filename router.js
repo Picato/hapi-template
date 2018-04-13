@@ -1,5 +1,6 @@
 'use strict'
 
+const Joi = require('joi')
 const { Test } = require('./controllers')
 
 module.exports = [
@@ -11,5 +12,21 @@ module.exports = [
       description: 'For testing',
     },
     handler: Test.test
+  },
+  {
+    method: 'GET',
+    path: '/post/{id}',
+    config: {
+      tags: ['api'],
+      validate: {
+        params: {
+            id : Joi.number()
+                    .required()
+                    .description('the id for the todo item'),
+        }
+      },
+      description: 'Test post',
+    },
+    handler: Test.post
   }
 ]

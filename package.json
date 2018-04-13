@@ -4,7 +4,10 @@
   "description": "campaign manager service",
   "main": "index.js",
   "nodemonConfig": {
-    "ignore": ["test/*", "docs/*"],
+    "ignore": [
+      "test/*",
+      "docs/*"
+    ],
     "delay": "1500"
   },
   "scripts": {
@@ -24,9 +27,15 @@
   },
   "homepage": "https://github.com/viosoft-corp/eu4-server-campaign#readme",
   "dependencies": {
-    "blipp": "^3.0.0",
     "boom": "^7.2.0",
     "hapi": "^17.3.1",
-    "hapi-alive": "^2.0.0"
+    "hapi-alive": "^2.0.0",
+    "joi": "^13.1.2"
+  },
+  "devDependencies": {
+    "blipp": "^3.0.0",
+    "hapi-swagger": "^9.1.1",
+    "inert": "^5.1.0",
+    "vision": "^5.3.2"
   }
 }
