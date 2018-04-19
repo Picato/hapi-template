@@ -28,9 +28,11 @@
   "homepage": "https://github.com/viosoft-corp/eu4-server-campaign#readme",
   "dependencies": {
     "boom": "^7.2.0",
+    "glob": "^7.1.2",
     "hapi": "^17.3.1",
     "hapi-alive": "^2.0.0",
-    "joi": "^13.1.2"
+    "joi": "^13.1.2",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "blipp": "^3.0.0",

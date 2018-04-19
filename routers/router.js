@@ -1,7 +1,7 @@
 'use strict'
 
 const Joi = require('joi')
-const { Test } = require('./controllers')
+const { Test } = require('../controllers')
 
 module.exports = [
   {

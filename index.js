@@ -2,7 +2,7 @@
 
 const Hapi = require('hapi')
 
-const routes = require('./router')
+const routes = require('./routers')
 
 //import config file
 const { PORT } = require('./config')
@@ -33,6 +33,10 @@ const start = async () => {
           info: {
             title: 'API Server Documentation',
             version: '1.0',
+            'contact': {
+              'name': 'Tuan Ngo',
+              'email': 'nhutuan.ngo@gmail.com'
+            }
         },
       }}
     ])

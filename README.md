@@ -23,4 +23,4 @@ npm run start
 ### Document
 Run on !production environment, can check api document & test gui at:    
 
-http://localhost:3000/document
+http://localhost:3000/documentation
