@@ -4,10 +4,10 @@ const Hapi = require('hapi')
 const routes = require('./routers')
 
 // import config file
-const { PORT, LOG_OPTIONS } = require('./config')
+const { PORT, LOG_OPTIONS, CORS } = require('./config')
 
 // create a server with a host and port
-const server = Hapi.server({ host: 'localhost', port: PORT });
+const server = Hapi.Server( {host: 'localhost', port: PORT, routes: { cors: CORS || false } })
 
 // add all routes
 routes.forEach(route => { server.route(route) })

@@ -1,4 +1,6 @@
+// server 
 exports.PORT = 3000
+exports.CORS = true
 
 exports.LOG_OPTIONS = {
   ops: { interval: 1000 },
