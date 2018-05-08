@@ -3,21 +3,16 @@
 const Hapi = require('hapi')
 const routes = require('./routers')
 
-//import config file
-const { PORT } = require('./config')
+// import config file
+const { PORT, LOG_OPTIONS } = require('./config')
 
-// Create a server with a host and port
-const server = Hapi.server({
-  host: 'localhost',
-  port: PORT
-});
+// create a server with a host and port
+const server = Hapi.server({ host: 'localhost', port: PORT });
 
-// Add the route
-routes.forEach(route => {
-  server.route(route)
-})
+// add all routes
+routes.forEach(route => { server.route(route) })
 
-// Start the server
+// start the server
 const start = async () => {
 
   // register plugin DEV mode
@@ -42,18 +37,7 @@ const start = async () => {
   } 
 
   // log plugin register 
-  await server.register({ plugin: require('good'), 
-    options: {
-      ops: { interval: 1000 },
-      reporters: {
-        console: [
-          { module: 'good-squeeze', name: 'Squeeze', args: [{ log: '*', response: '*' }]}, 
-          { module: 'good-console', args: [{  format: 'HH:MM:SS-SSS', utc: false, color: true }]},
-          'stdout'
-        ]
-      }
-    }
-  })
+  await server.register({ plugin: require('good'), options: LOG_OPTIONS })
 
   // server status plugin
   await server.register([require('hapi-alive')])  
