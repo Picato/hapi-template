@@ -31,7 +31,7 @@ const start = async () => {
         options: {
           info: {
             title: 'API Server Documentation',
-            version: '1.0',
+            version: require('./package.json').version,
             contact: {
               'name': 'Tuan Ngo',
               'email': 'nhutuan.ngo@gmail.com'
@@ -41,7 +41,21 @@ const start = async () => {
     ])
   } 
 
-  // register plugin 
+  // log plugin register 
+  await server.register({ plugin: require('good'), 
+    options: {
+      ops: { interval: 1000 },
+      reporters: {
+        console: [
+          { module: 'good-squeeze', name: 'Squeeze', args: [{ log: '*', response: '*' }]}, 
+          { module: 'good-console', args: [{  format: 'HH:MM:SS-SSS', utc: false, color: true }]},
+          'stdout'
+        ]
+      }
+    }
+  })
+
+  // server status plugin
   await server.register([require('hapi-alive')])  
   
   try {
@@ -52,7 +66,7 @@ const start = async () => {
     process.exit(1)
   }
 
-  console.log('Server running at:', server.info.uri)
+  server.log('starting', 'Server running at: ' + server.info.uri)
 }
 
 start()
