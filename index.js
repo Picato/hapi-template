@@ -1,7 +1,6 @@
 'use strict'
 
 const Hapi = require('hapi')
-
 const routes = require('./routers')
 
 //import config file
@@ -33,7 +32,7 @@ const start = async () => {
           info: {
             title: 'API Server Documentation',
             version: '1.0',
-            'contact': {
+            contact: {
               'name': 'Tuan Ngo',
               'email': 'nhutuan.ngo@gmail.com'
             }
@@ -42,7 +41,7 @@ const start = async () => {
     ])
   } 
 
-  // register useful plugin 
+  // register plugin 
   await server.register([require('hapi-alive')])  
   
   try {
