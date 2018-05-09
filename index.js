@@ -4,7 +4,11 @@ const Hapi = require('hapi')
 const routes = require('./routers')
 
 // import config file
-const { PORT, LOG_OPTIONS, CORS } = require('./config')
+const { 
+  PORT, 
+  LOG_OPTIONS, 
+  MONGOO_OPTS,
+  CORS } = require('./config')
 
 // create a server with a host and port
 const server = Hapi.Server( {host: 'localhost', port: PORT, routes: { cors: CORS || false } })
@@ -42,10 +46,27 @@ const start = async () => {
   // server status plugin
   await server.register([require('hapi-alive')])  
   
-  try {
-    await server.start()
+  console.error(MONGOO_OPTS)
+  // mongo db
+  if ( MONGOO_OPTS ) {
+    await server.register({
+      plugin: require('hapi-mongo-models'),
+      options: {
+        mongodb: MONGOO_OPTS,
+        // models: require('./models'),
+        models: [
+          '/home/tuan/workspace/hapi/hapi-template/models/customer.js'
+        ],
+        autoIndex: false
+      }
+    })
   }
-  catch (err) {
+  
+  try {
+
+    await server.start()
+
+  } catch (err) {
     console.log(err)
     process.exit(1)
   }

@@ -12,3 +12,11 @@ exports.LOG_OPTIONS = {
     ]
   }
 }
+
+exports.MONGOO_OPTS = {
+  connection: {
+    uri: 'mongodb://localhost:27017/',
+    db: 'hapi-mongo-models-test'
+  },
+  options: {}
+}
