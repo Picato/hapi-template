@@ -46,17 +46,13 @@ const start = async () => {
   // server status plugin
   await server.register([require('hapi-alive')])  
   
-  console.error(MONGOO_OPTS)
   // mongo db
   if ( MONGOO_OPTS ) {
     await server.register({
       plugin: require('hapi-mongo-models'),
       options: {
         mongodb: MONGOO_OPTS,
-        // models: require('./models'),
-        models: [
-          '/home/tuan/workspace/hapi/hapi-template/models/customer.js'
-        ],
+        models: require('./models'),
         autoIndex: false
       }
     })
