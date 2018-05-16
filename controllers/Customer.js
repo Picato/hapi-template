@@ -12,12 +12,12 @@ module.exports = {
     try {
 
       await Customer.insertOne(data)
-    } catch (error) {
 
+      return h.response().code(201)
+    } catch (error) {
+      request.log('api-get', error)
       throw Boom.badData('not allowed', error)
     }
-
-    return h.response().code(201)
   },
 
   get: async (request, h) => {
@@ -42,6 +42,6 @@ module.exports = {
   },
   
   update: async (request, h) => {
-    
+
   }
 }
