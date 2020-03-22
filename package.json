@@ -1,7 +1,7 @@
 {
-  "name": "eu4-server-campaign",
+  "name": "hapi-template",
   "version": "1.0.0",
-  "description": "campaign manager service",
+  "description": "for faster dev",
   "main": "index.js",
   "nodemonConfig": {
     "ignore": [
@@ -17,15 +17,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/viosoft-corp/eu4-server-campaign.git"
+    "url": "git+https://github.com:Picato/hapi-template.git   "
   },
   "keywords": [
     "eu4"
   ],
-  "bugs": {
-    "url": "https://github.com/viosoft-corp/eu4-server-campaign/issues"
-  },
-  "homepage": "https://github.com/viosoft-corp/eu4-server-campaign#readme",
+  "homepage": "https:/github.com:Picato/hapi-template#readme",
   "dependencies": {
     "boom": "^7.2.0",
     "glob": "^7.1.2",
