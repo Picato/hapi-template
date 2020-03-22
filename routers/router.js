@@ -19,11 +19,7 @@ module.exports = [
     config: {
       tags: ['api'],
       validate: {
-        params: {
-            id : Joi.number()
-                    .required()
-                    .description('the id for the todo item'),
-        }
+        params: { id : Joi.number().required().description('the id for the todo item') }
       },
       description: 'Test post',
     },
